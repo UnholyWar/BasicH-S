@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Onur Özgültekin",
+    "message": "*res",
+    "color": "#ff0000"
+  },
+  {
+    "name": "Onur Özgültekin",
+    "message": "Js``function InsertToJson(location,data) {     const chatFilePath = path.join(__dirname, location);     const chatData = JSON.parse(fs.readFileSync(chatFilePath, 'utf8'));     chatData.push(data);     fs.writeFileSync(chatFilePath, JSON.stringify(chatData, null, 2), 'utf8'); }``",
+    "color": "#ff0000"
+  },
+  {
+    "name": "Onur Özgültekin",
+    "message": "*res",
+    "color": "#ff0000"
+  },
+  {
+    "name": "Onur Özgültekin",
+    "message": "<img src=\"https://png.pngtree.com/background/20230613/original/pngtree-earth-orbited-by-the-clouds-above-a-flat-earth-picture-image_3428658.jpg\" style=\"width:500px\">",
+    "color": "#ff0000"
+  },
+  {
+    "name": "Onur Özgültekin",
+    "message": "deneme",
+    "color": "#ff0000"
+  },
+  {
+    "name": "Onur Özgültekin",
+    "message": "denem e",
+    "color": "#3c2020"
+  },
+  {
+    "name": "Onur Özgültekin",
+    "message": "deneme",
+    "color": "#3c2020"
+  }
+
+]

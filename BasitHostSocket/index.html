@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YKC SOFT Chat</title>
+    <style>
+        /* Özgün CSS stil tanımlamaları burada */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+             background-image: url("https://www.chromethemer.com/download/hd-wallpapers/astronaut-01-2560x1440.jpg"); 
+         
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+
+        pre code {
+            max-width: 85%;
+            padding: 10px;
+            background-color: #6d6c6c;
+            white-space: pre-wrap;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+            /* Gölge eklemek için kullanılır */
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        .card-body {
+            padding: 15px;
+            background-color: #cccccc54;
+        }
+
+        .card {
+            background-color: #cccccc54;
+        }
+
+        .chat-container {
+            height: 580px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .input-group {
+            margin-top: 10px;
+        }
+
+        #userNameid {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .cttr {
+            margin-bottom: 5px;
+            background-color: rgba(255, 255, 255, 0.363);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #messageInput {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #sendMessageBtn {
+            width: 18%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color:silver;
+            color:yellow;
+            font-weight: bold;
+        }
+
+     
+        /* width */
+        ::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey;
+            border-radius: 10px;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: rgba(45, 29, 116, 0.863);
+            border-radius: 5px;
+        }
+
+        #userNameid {
+            background: transparent;
+            border: none;
+            color: white;
+            font-family: monospace;
+
+        }
+
+        #userNameid::placeholder {
+            color: white;
+            opacity: .8;
+        }
+
+     
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(65, 54, 114, 0.863);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css"
+        integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
+    <style>
+        .card {
+            background-color: #6d6c6c59 !important;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div style="position: fixed; top:0px;"><button class="btn btn-warning"
+            onclick="document.getElementById(`messageInput`).value+='Js``kod``'"> Js </button> <button
+            onclick="document.getElementById(`messageInput`).value+='C#``kod``'" class="btn btn-dark"
+            onclick="">C#</button></div>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-9 m-auto">
+                <input placeholder="Adınızı girin" id="userNameid" class="form-control form-control-sm">
+                <div class="card">
+                    <div class="card-header text-light " style="font-weight: bolder;">YKC SOFT Chat
+                    </div>
+                    <div class="card-body">
+                        <div class="chat-container" id="chatCon">
+                            <!-- Mesajlar buraya eklenir -->
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="input-group">
+                            <input id="messageInput" type="text" class="form-control form-control-sm"
+                                placeholder="Mesajınızı yazın...">
+                                <div style="width: 44px;">
+                                    <input type="color" id="favcolor" name="favcolor" class="form-control-sm form-control"value="#ff0000">
+                                </div>
+                            <button id="sendMessageBtn" class="btn nbtn px-1 py-0">Yolla</button>
+                            <button id="sendMessageBtnimg" class="btn btn-warning  px-1 py-0"
+                                style="font-weight: Bold;">Img</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+
+    <script>
+        document.querySelectorAll("code.hljs").forEach(function (codeElement) {
+            codeElement.addEventListener("click", function () {
+                // Koddan içerik alın
+                const codeText = codeElement.innerText;
+
+                // Clipboard API'sini kullanarak metni panoya kopyala
+                navigator.clipboard.writeText(codeText).then(function () {
+                    console.log("Kod metni kopyalandı: " + codeText);
+                }).catch(function (err) {
+                    console.error("Kod metni kopyalanırken hata oluştu: " + err);
+                });
+            });
+        });
+    </script>
+    <script>
+        // Gönder butonuna tıklama işlevi
+        document.getElementById('sendMessageBtn').addEventListener('click', function () {
+            sendMessage();
+        });
+        document.getElementById('sendMessageBtnimg').addEventListener('click', function () {
+            sendMessageImg();
+        });
+        // Enter tuşuna basıldığında da gönder
+        document.getElementById('messageInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Mesajları getiren fonksiyon
+        function getMessages() {
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', 'http://192.168.1.47:3000/getall', true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    const chatData = JSON.parse(xhr.responseText);
+                    const chatContainer = document.getElementById("chatCon");
+                    chatContainer.innerHTML = ""; // Mesajları temizle
+                    chatData.forEach((element) => {
+
+                        chatContainer.innerHTML += `<div class="cttr" style="color:${element.color}"><b>${element.name}:</b> ${highlightCodeBlocks(element.message)}</div>`;
+
+                    });
+                    const chatDiv = document.getElementById('chatCon'); // chatCon adındaki div elementini seçin
+                    chatDiv.scrollTop = chatDiv.scrollHeight; // scrollTop özelliğini scrollHeight'e ayarlayarak en alta inin
+
+                    hljs.highlightAll();
+                }
+            };
+            xhr.send();
+        }
+        window.addEventListener('load', function () {
+            const usernameInput = document.getElementById('userNameid');
+            const favcolor = document.getElementById('favcolor');
+            const savedUsername = sessionStorage.getItem('username');
+            const tcolor = sessionStorage.getItem('tcolor');
+            if (savedUsername) {
+                usernameInput.value = savedUsername;
+            }
+            if (tcolor) {
+                favcolor.value = tcolor;
+            }
+
+        });
+        // Mesaj gönderme işlevi
+        function sendMessage() {
+            const messageInput = document.getElementById('messageInput');
+            const favcolor = document.getElementById('favcolor');
+            const username = document.getElementById('userNameid');
+            const message = messageInput.value;
+            const usernameV = username.value;
+
+            if (usernameV.trim() === '') {
+                username.style.backgroundColor = 'red';
+                username.style.color = 'white';
+                alert('Adınızı girin.');
+                return;
+            }
+            username.style.backgroundColor = 'white';
+            username.style.color = 'black';
+            sessionStorage.setItem('username', usernameV);
+            sessionStorage.setItem('tcolor', favcolor.value);
+            if (message.trim() === '') {
+
+                return;
+            }
+
+            const ipAddress = '192.168.1.47'; // Sunucunuzun IP adresini buraya ekleyin
+            const port = 3000; // Sunucunuzun port numarasını buraya ekleyin
+            const messageData = {
+                name: usernameV,
+                message,
+                color:document.getElementById("favcolor").value
+            };
+
+            fetch(`http://${ipAddress}:${port}/Message`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(messageData),
+            })
+                .then((response) => {
+                    if (response.status === 200) {
+                        messageInput.value = '';
+                    } else {
+                        console.error('Mesaj gönderilirken bir hata oluştu.');
+                    }
+                })
+                .catch((error) => {
+                    console.error('Hata oluştu:', error);
+                });
+        }
+        function sendMessageImg() {
+            const messageInput = document.getElementById('messageInput');
+            const username = document.getElementById('userNameid');
+            const message = `<img src="${messageInput.value}">`;
+            const usernameV = username.value;
+
+            if (usernameV.trim() === '') {
+                username.style.backgroundColor = 'red';
+                username.style.color = 'white';
+                alert('Adınızı girin.');
+                return;
+            }
+            username.style.backgroundColor = 'white';
+            username.style.color = 'black';
+            sessionStorage.setItem('username', usernameV);
+            if (message.trim() === '') {
+
+                return;
+            }
+
+            const ipAddress = '192.168.1.47'; // Sunucunuzun IP adresini buraya ekleyin
+            const port = 3000; // Sunucunuzun port numarasını buraya ekleyin
+            const messageData = {
+                name: usernameV,
+                message,
+                color:document.getElementById("favcolor").value
+            };
+
+            fetch(`http://${ipAddress}:${port}/Message`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(messageData),
+            })
+                .then((response) => {
+                    if (response.status === 200) {
+                        messageInput.value = '';
+                    } else {
+                        console.error('Mesaj gönderilirken bir hata oluştu.');
+                    }
+                })
+                .catch((error) => {
+                    console.error('Hata oluştu:', error);
+                });
+        }
+
+        // Başlangıçta mesajları getir
+        getMessages();
+
+        function highlightCodeBlocks(text) {
+            const csharpRegex = /C#``([^`]*)``/g;
+            const jsRegex = /Js``([^`]*)``/g;
+            const hasCSharpCode = csharpRegex.test(text);
+            const hasJsCode = jsRegex.test(text);
+
+            if (hasCSharpCode) {
+                text = text.replace(csharpRegex, '<pre><code class="hljs csharp">$1</code></pre>');
+            }
+
+            if (hasJsCode) {
+                text = text.replace(jsRegex, '<pre><code class="hljs js">$1</code></pre>');
+            }
+
+
+
+            return text;
+        }
+
+    </script>
+    <script>
+        const socket = new WebSocket('ws://192.168.1.47:4000');
+        socket.onopen = () => {
+            console.log('Connected');
+        };
+        socket.onmessage = (event) => {
+
+            const chatContainer = document.getElementById("chatCon");
+            const message = JSON.parse(event.data);
+            if (message.message == "*res") {
+                window.location.reload();
+                return;
+            }
+            if (message.message == "*hide") {
+                chatContainer.innerHTML = "";
+                return;
+            }
+            if (message.message == "*show") {
+                getMessages();
+                return;
+            }
+
+            chatContainer.innerHTML += `<div class="cttr" style="color:${message.color};"><b>${message.name}:</b> ${highlightCodeBlocks(message.message)}</div>`;
+            const chatDiv = document.getElementById('chatCon'); // chatCon adındaki div elementini seçin
+            chatDiv.scrollTop = chatDiv.scrollHeight; // scrollTop özelliğini scrollHeight'e ayarlayarak en alta inin
+
+            hljs.highlightAll();
+        };
+
+
+
+    </script>
+
+
+</body>
+
+</html>
